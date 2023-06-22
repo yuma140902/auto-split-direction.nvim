@@ -1,0 +1,52 @@
+*auto-split-direction.nvim.txt*  Automatically determines the direction of window splitting
+
+==============================================================================
+Table of Contents                *auto-split-direction.nvim-table-of-contents*
+
+1. auto-split-direction.nvim                 |auto-split-direction.nvim-about|
+  - Requirements                      |auto-split-direction.nvim-requirements|
+  - Installation                      |auto-split-direction.nvim-installation|
+  - Configuration                    |auto-split-direction.nvim-configuration|
+
+==============================================================================
+
+1. auto-split-direction.nvim    *:Split*     *auto-split-direction.nvim-about*
+
+auto-split-direction.nvim is a lua plugin for Neovim that automatically 
+determines the direction of window splitting.
+You can use `:Split` command to split a window.
+
+REQUIREMENTS                          *auto-split-direction.nvim-requirements*
+
+- Neovim
+
+INSTALLATION                          *auto-split-direction.nvim-installation*
+
+LAZY.NVIM ~
+
+>lua
+
+  {
+    'yuma140902/auto-split-direction.nvim',
+    cmd = 'Split',
+    setup = function()
+      require 'auto-split-direction'.setup {
+	-- your options here
+      }
+    end
+  }
+
+<
+
+CONFIGURATION                         *auto-split-direction.nvim-configuration*
+
+>lua
+
+  {
+    debug = false,  -- if true, show debug messages
+    ratio = 3.0     -- Column to row ratio threshold
+  }
+
+<
+
+vim:tw=78:ts=8:noet:ft=help:norl:
