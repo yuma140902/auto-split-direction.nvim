@@ -1,7 +1,8 @@
 local function auto_split(ratio)
   local width = vim.api.nvim_win_get_width(0)
   local height = vim.api.nvim_win_get_height(0)
-  vim.notify("width = " .. tostring(width) .. " height = " .. tostring(height))
+  vim.notify("[auto-split-direction] width = " .. tostring(width) .. " height = " .. tostring(height),
+    vim.log.levels.DEBUG)
   if width > height * ratio then
     vim.cmd 'vsplit'
   else
@@ -15,7 +16,7 @@ local function setup(opts)
   end
 
   if opts['debug'] then
-    vim.notify("auto-split-direction has started!", vim.log.levels.ERROR)
+    vim.notify("[auto-split-direction] auto-split-direction has started!", vim.log.levels.DEBUG)
   end
 
   local ratio = opts['ratio']
