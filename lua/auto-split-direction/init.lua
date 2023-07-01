@@ -27,7 +27,7 @@ local function setup(opts)
     vim.notify("[auto-split-direction] auto-split-direction has started!", vim.log.levels.DEBUG)
   end
 
-  vim.api.nvim_create_user_command('Split', function() auto_split(opts.ratio, opts.debug) end, {})
+  vim.api.nvim_create_user_command('SplitAutoDirection', function() auto_split(opts.ratio, opts.debug) end, {})
 end
 return {
   setup = setup,

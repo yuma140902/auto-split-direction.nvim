@@ -1,7 +1,7 @@
 # auto-split-direction.nvim
 
 auto-split-direction.nvimはウィンドウの分割方向を自動的に決定するプラグインです。
-`:Split`コマンドを使ってウィンドウを分割できます。
+`:SplitAutoDirection`コマンドを使ってウィンドウを分割できます。
 ウィンドウが縦長なら水平に、横長なら垂直に分割します。
 
 ([English](./README.md) / 日本語)

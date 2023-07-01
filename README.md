@@ -1,6 +1,6 @@
 # auto-split-direction.nvim
 
-auto-split-direction.nvim is a lua plugin for Neovim that automatically determines the direction of window splitting. You can use `:Split` command to split a window. It splits the window horizontally if it is vertical, and vertically if it is horizontal.
+auto-split-direction.nvim is a lua plugin for Neovim that automatically determines the direction of window splitting. You can use `:SplitAutoDirection` command to split a window. It splits the window horizontally if it is vertical, and vertically if it is horizontal.
 
 (English / [日本語](./README.ja.md))
 
