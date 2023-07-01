@@ -10,7 +10,7 @@
 
 ==============================================================================
 
-1. auto-split-direction.nvim    *:Split*     *auto-split-direction.nvim-about*
+1. auto-split-direction.nvim    *:SplitAutoDirection*   *auto-split-direction.nvim-about*
 
 auto-split-direction.nvim
 はウィンドウの分割方向を自動的に決定するプラグインです。
@@ -29,7 +29,7 @@ LAZY.NVIM ~
 
   {
     'yuma140902/auto-split-direction.nvim',
-    cmd = 'Split',
+    cmd = 'SplitAutoDirection',
     setup = function()
       require 'auto-split-direction'.setup {
 	-- ここにオプションを書く

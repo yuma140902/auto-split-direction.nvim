@@ -15,7 +15,7 @@ auto-split-direction.nvim is a lua plugin for Neovim that automatically determin
 ```lua
 {
     'yuma140902/auto-split-direction.nvim',
-    cmd = 'Split',
+    cmd = 'SplitAutoDirection',
     setup = function()
         require 'auto-split-direction'.setup {
             -- your options here

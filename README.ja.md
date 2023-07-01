@@ -17,7 +17,7 @@ auto-split-direction.nvimはウィンドウの分割方向を自動的に決定�
 ```lua
 {
     'yuma140902/auto-split-direction.nvim',
-    cmd = 'Split',
+    cmd = 'SplitAutoDirection',
     setup = function()
         require 'auto-split-direction'.setup {
             -- ここにオプションを書く

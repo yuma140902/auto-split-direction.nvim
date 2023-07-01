@@ -10,7 +10,7 @@ Table of Contents                *auto-split-direction.nvim-table-of-contents*
 
 ==============================================================================
 
-1. auto-split-direction.nvim    *:Split*     *auto-split-direction.nvim-about*
+1. auto-split-direction.nvim    *:SplitAutoDirection*     *auto-split-direction.nvim-about*
 
 auto-split-direction.nvim is a lua plugin for Neovim that automatically 
 determines the direction of window splitting. You can use `:SplitAutoDirection` command to
@@ -30,7 +30,7 @@ LAZY.NVIM ~
 
   {
     'yuma140902/auto-split-direction.nvim',
-    cmd = 'Split',
+    cmd = 'SplitAutoDirection',
     setup = function()
       require 'auto-split-direction'.setup {
 	-- your options here
