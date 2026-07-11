@@ -6,7 +6,7 @@ auto-split-direction.nvim is a lua plugin for Neovim that automatically determin
 
 ## Requirements
 
-- Neovim
+- Neovim 0.7.0 or later
 
 ## Installation
 
@@ -16,6 +16,10 @@ auto-split-direction.nvim is a lua plugin for Neovim that automatically determin
 {
     'yuma140902/auto-split-direction.nvim',
     cmd = 'SplitAutoDirection',
+    init = function()
+	-- Mapping `<C-w>a` to `<cmd>SplitAutoDirection<cr>` is recommended but not required.
+        vim.keymap.set('n', '<C-w>a', '<cmd>SplitAutoDirection<cr>')
+    end,
     setup = function()
         require 'auto-split-direction'.setup {
             -- your options here
@@ -24,14 +28,14 @@ auto-split-direction.nvim is a lua plugin for Neovim that automatically determin
 }
 ```
 
+
 ## Configuration
 
 ```lua
 {
     debug = false,  -- if true, show debug messages
-    ratio = 3.0     -- Column to row ratio threshold
+    ratio = 3.0     -- Column to row ratio
 }
 ```
 
 See also [auto-split-direction.nvim.txt](./doc/auto-split-direction.nvim.txt).
-

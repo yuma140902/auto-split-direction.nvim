@@ -1,53 +1,44 @@
-*auto-split-direction.nvim.txt*  ウィンドウの分割方向を自動的に決定する
+*auto-split-direction.nvim.jax*       ウィンドウの分割方向を自動的に選択する
 
 ==============================================================================
-目次                             *auto-split-direction.nvim-table-of-contents*
+目次                                  *auto-split-direction.nvim-contents-ja*
 
-1. auto-split-direction.nvim                 |auto-split-direction.nvim-about|
-  - Requirements                      |auto-split-direction.nvim-requirements|
-  - インストール方法                  |auto-split-direction.nvim-installation|
-  - 設定                             |auto-split-direction.nvim-configuration|
+1. はじめに                          |auto-split-direction.nvim-ja|
+2. コマンド                          |auto-split-direction.nvim-commands-ja|
+3. Lua API                           |auto-split-direction.nvim-api-ja|
 
 ==============================================================================
+はじめに                              *auto-split-direction.nvim-ja*
 
-1. auto-split-direction.nvim    *:SplitAutoDirection*   *auto-split-direction.nvim-about*
+auto-split-direction.nvimは、現在のウィンドウの大きさに応じて分割方向を
+選択するコマンドを提供します。
 
-auto-split-direction.nvim
-はウィンドウの分割方向を自動的に決定するプラグインです。
-`:SplitAutoDirection`コマンドを使ってウィンドウを分割できます。
-ウィンドウが縦長なら水平に、横長なら垂直に分割します。
+ウィンドウの幅が高さと設定された比率の積より大きい場合は垂直分割を作成し、
+それ以外の場合は水平分割を作成します。
 
-REQUIREMENTS                          *auto-split-direction.nvim-requirements*
+==============================================================================
+コマンド                              *auto-split-direction.nvim-commands-ja*
 
-- Neovim
+                                               *:SplitAutoDirection*
+:SplitAutoDirection
+        現在のウィンドウの幅、高さ、および設定された比率から選択した方向に
+        ウィンドウを分割します。
 
-インストール方法                      *auto-split-direction.nvim-installation*
+==============================================================================
+LUA API                               *auto-split-direction.nvim-api-ja*
 
-LAZY.NVIM ~
+setup({opts})                         *auto-split-direction.setup()*
+        プラグインを設定し、|:SplitAutoDirection|を作成します。
 
->lua
+        {opts}には以下の項目を指定できます:
 
-  {
-    'yuma140902/auto-split-direction.nvim',
-    cmd = 'SplitAutoDirection',
-    setup = function()
-      require 'auto-split-direction'.setup {
-	-- ここにオプションを書く
-      }
-    end
-  }
+        debug     (boolean) デバッグメッセージを表示します。既定値: false。
+        ratio     (number)  分割方向の選択に使用する幅と高さの比率です。
+                           既定値: 3.0。
 
-<
+auto_split({ratio}, {debug})          *auto-split-direction.auto_split()*
+        現在のウィンドウの幅が高さと{ratio}の積より大きい場合は垂直に、
+        それ以外の場合は水平に分割します。{debug}がtrueの場合は、現在の
+        ウィンドウの大きさを表示します。
 
-設定                                 *auto-split-direction.nvim-configuration*
-
->lua
-
-  {
-    debug = false,  -- trueならデバッグ情報を表示する
-    ratio = 3.0     -- 行と列の比の閾値
-  }
-
-<
-
-vim:tw=78:ts=8:noet:ft=help:norl:
+ vim:tw=78:ts=8:noet:ft=help:norl:

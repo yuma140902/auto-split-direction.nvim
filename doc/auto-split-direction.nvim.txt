@@ -1,54 +1,45 @@
-*auto-split-direction.nvim.txt*  Automatically determines the direction of window splitting
+*auto-split-direction.nvim.txt*       Automatically choose a split direction
 
 ==============================================================================
-Table of Contents                *auto-split-direction.nvim-table-of-contents*
+CONTENTS                              *auto-split-direction.nvim-contents*
 
-1. auto-split-direction.nvim                 |auto-split-direction.nvim-about|
-  - Requirements                      |auto-split-direction.nvim-requirements|
-  - Installation                      |auto-split-direction.nvim-installation|
-  - Configuration                    |auto-split-direction.nvim-configuration|
+1. Introduction                      |auto-split-direction.nvim|
+2. Commands                          |auto-split-direction.nvim-commands|
+3. Lua API                           |auto-split-direction.nvim-api|
 
 ==============================================================================
+INTRODUCTION                          *auto-split-direction.nvim*
 
-1. auto-split-direction.nvim    *:SplitAutoDirection*     *auto-split-direction.nvim-about*
+auto-split-direction.nvim provides a command that chooses a window split
+direction from the dimensions of the current window.
 
-auto-split-direction.nvim is a lua plugin for Neovim that automatically 
-determines the direction of window splitting. You can use `:SplitAutoDirection` command to
-split a window. It splits the window horizontally if it is vertical, and 
-vertically if it is horizontal
+If the window width is greater than its height multiplied by the configured
+ratio, the plugin creates a vertical split. Otherwise, it creates a horizontal
+split.
 
+==============================================================================
+COMMANDS                              *auto-split-direction.nvim-commands*
 
-REQUIREMENTS                          *auto-split-direction.nvim-requirements*
+                                               *:SplitAutoDirection*
+:SplitAutoDirection
+        Splits the current window in the direction selected from its width,
+        height, and the configured ratio.
 
-- Neovim
+==============================================================================
+LUA API                               *auto-split-direction.nvim-api*
 
-INSTALLATION                          *auto-split-direction.nvim-installation*
+setup({opts})                         *auto-split-direction.setup()*
+        Configures the plugin and creates |:SplitAutoDirection|.
 
-LAZY.NVIM ~
+        {opts} may contain:
 
->lua
+        debug     (boolean) Show debug messages. Default: false.
+        ratio     (number)  Width-to-height threshold used to choose the split
+                           direction. Default: 3.0.
 
-  {
-    'yuma140902/auto-split-direction.nvim',
-    cmd = 'SplitAutoDirection',
-    setup = function()
-      require 'auto-split-direction'.setup {
-	-- your options here
-      }
-    end
-  }
+auto_split({ratio}, {debug})          *auto-split-direction.auto_split()*
+        Splits the current window vertically when its width is greater than
+        its height multiplied by {ratio}. Otherwise, splits it horizontally.
+        When {debug} is true, displays the current window dimensions.
 
-<
-
-CONFIGURATION                         *auto-split-direction.nvim-configuration*
-
->lua
-
-  {
-    debug = false,  -- if true, show debug messages
-    ratio = 3.0     -- Column to row ratio threshold
-  }
-
-<
-
-vim:tw=78:ts=8:noet:ft=help:norl:
+ vim:tw=78:ts=8:noet:ft=help:norl:
