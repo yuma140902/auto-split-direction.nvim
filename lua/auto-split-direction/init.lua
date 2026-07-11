@@ -1,4 +1,7 @@
-local function auto_split(ratio, debug)
+---@class AutoSplitDirection
+local M = {}
+
+function M.auto_split(ratio, debug)
   local width = vim.api.nvim_win_get_width(0)
   local height = vim.api.nvim_win_get_height(0)
   if debug then
@@ -12,24 +15,17 @@ local function auto_split(ratio, debug)
   end
 end
 
-local function setup(opts)
-  if opts == nil then
-    opts = {}
-  end
-  setmetatable(opts, {
-    __index = {
-      debug = false,
-      ratio = 3.0
-    }
-  })
+function M.setup(opts)
+  opts = vim.tbl_deep_extend('force', {
+    debug = false,
+    ratio = 3.0
+  }, opts or {})
 
   if opts.debug then
     vim.notify("[auto-split-direction] auto-split-direction has started!", vim.log.levels.DEBUG)
   end
 
-  vim.api.nvim_create_user_command('SplitAutoDirection', function() auto_split(opts.ratio, opts.debug) end, {})
+  vim.api.nvim_create_user_command('SplitAutoDirection', function() M.auto_split(opts.ratio, opts.debug) end, {})
 end
-return {
-  setup = setup,
-  auto_split = auto_split
-}
+
+return M
